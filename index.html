@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Sheetsee Table Demo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link href="css/footable.core.css" rel="stylesheet" type="text/css" />
+    <link href="css/footable.standalone.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://extras.denverpost.com/foundation/css/foundation.css" />
+    <link rel="stylesheet" href="http://extras.denverpost.com/foundation/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="http://extras.denverpost.com/weather-closures/weather-closures-styles.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/tabletop.js"></script>
+    <script type="text/javascript" src="js/sheetsee.js"></script>
+    <script type="text/javascript" src="js/footable.js"></script>
+    <script src="http://extras.denverpost.com/foundation/js/vendor/modernizr.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        $(function() {
+            $('.footable').footable();
+        });
+    </script>
+    <div class="row">
+        <div class="12-small columns">
+            <div id="draft-table"></div>
+        </div>
+    </div>
+
+    <script id="draft-table_template" type="text/html">
+        <table class="footable">
+            <tr>
+                <th class="tHeader">Player</th>
+                <th class="tHeader">Team</th>
+                <th class="tHeader">College</th>
+            </tr>
+            {{#rows}}
+            <tr>
+                <td>{{player}}</td>
+                <td>{{team}}</td>
+                <td>{{college}}</td>
+            </tr>
+            {{/rows}}
+        </table>
+    </script>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Google Sheet id here
+            var URL = "1N-bIPX-eU2B91AGROowruafQ1NoRaZLjmflOh-bqVNs"
+            Tabletop.init({
+                key: URL,
+                callback: showInfo,
+                simpleSheet: true
+            })
+        })
+
+        function showInfo(data) {
+            var tableOptions = {
+                "data": data,
+                "pagination": 10,
+                "tableDiv": "#draft-table",
+                "filterDiv": "#draft-tableFilter"
+            }
+            Sheetsee.makeTable(tableOptions)
+            Sheetsee.initiateTableFilter(tableOptions)
+        }
+    </script>
+</body>
+</html>
