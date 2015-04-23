@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Sheetsee Table Demo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link href="css/footable.core.css" rel="stylesheet" type="text/css" />
+    <link href="css/footable.standalone.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://extras.denverpost.com/foundation/css/foundation.css" />
+    <link rel="stylesheet" href="http://extras.denverpost.com/foundation/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="http://extras.denverpost.com/weather-closures/weather-closures-styles.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/tabletop.js"></script>
+    <script type="text/javascript" src="js/footable.js"></script>
+    <script type="text/javascript" src="js/handlebars.js"></script>
+    <script src="http://extras.denverpost.com/foundation/js/vendor/modernizr.js"></script>
+</head>
+<body>
+    
+    
+    <div id="content">
+        <table class="myTable">
+            <tr>
+                <th width=2 20px>Team</th>
+                <th width=2 20px>Established</th>
+            </tr>
+            <tbody id="tabletop-content">
+            </tbody>
+        </table>
+    </div>
+
+    <script id="handlebars-template" type="text/x-handlebars-template">
+        <tr>
+             <td width = 220px>{{team}}</td>
+                <td width = 220 px: align = "center" border ="1" >{{established}}</td>
+        </tr>
+    </script>
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.4/handlebars.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.1.0/tabletop.min.js"></script>
+
+    <script type="text/javascript">
+    var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?key=0ArP8859PKYs8dEpUQ3hLejA1TVo1cWxPbnBVNy11TGc&output=html';
+
+    $(document).ready(function () {
+
+        Tabletop.init({
+            key: public_spreadsheet_url,
+            callback: showInfo,
+            simpleSheet: true,
+            parseNumbers: true,
+            debug: true
+        });
+    });
+
+    function showInfo(data, tabletop) {
+        var source = $("#handlebars-template").html();
+        var template = Handlebars.compile(source);
+
+        $.each(tabletop.sheets("profiles").all(), function (i, cat) {
+            var html = template(cat);
+            $("#tabletop-content").append(html);
+        });
+    }
+    </script>
+    <!-- <script type="text/javascript">
+        $(function() {
+            $('.footable').footable();
+        });
+    </script> -->
+</body>
+</html>

@@ -16,18 +16,14 @@
     <script src="http://extras.denverpost.com/foundation/js/vendor/modernizr.js"></script>
 </head>
 <body>
-    <script type="text/javascript">
-        $(function() {
-            $('.footable').footable();
-        });
-    </script>
     <div class="row">
-        <div class="12-small columns">            
-            <p>Search: <input id="draft-tableFilter" type="text"></input></p>
+        <div class="12-small columns">
+            <p>Search: 
+                <input id="draft-tableFilter" type="text"></input>
+            </p>
             <div id="draft-table"></div>
         </div>
     </div>
-
     <script id="draft-table_template" type="text/html">
         <table class="footable">
             <tr>
@@ -35,37 +31,35 @@
                 <th class="tHeader">Team</th>
                 <th data-hide="all" class="tHeader">College</th>
             </tr>
-            {{#rows}}
+    {{#rows}}
+    
             <tr>
                 <td>{{player}}</td>
                 <td>{{team}}</td>
                 <td>{{college}}</td>
             </tr>
-            {{/rows}}
+    {{/rows}}
+
         </table>
     </script>
-
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            // Google Sheet id here
-            var URL = "1N-bIPX-eU2B91AGROowruafQ1NoRaZLjmflOh-bqVNs"
-            Tabletop.init({
-                key: URL,
-                callback: showInfo,
-                simpleSheet: true
-            })
+    document.addEventListener('DOMContentLoaded', function() {
+    // Google Sheet id here
+    var URL = "1N-bIPX-eU2B91AGROowruafQ1NoRaZLjmflOh-bqVNs"
+    Tabletop.init( { key: URL, callback: showInfo,
+        simpleSheet: true } )
         })
-
         function showInfo(data) {
-            var tableOptions = {
-                "data": data,
-                "pagination": 10,
-                "tableDiv": "#draft-table",
-                "filterDiv": "#draft-tableFilter"
-            }
-            Sheetsee.makeTable(tableOptions)
-            Sheetsee.initiateTableFilter(tableOptions)
-        }
+        console.log(data[0])
+    };
+    $.getJSON('names.json', function(data){
+    for(var i in data){
+        $('#myDiv').append(data[i]);
+    }
+});
     </script>
+    <!--  $(function() {
+        $('.footable').footable();
+    }); -->
 </body>
 </html>
