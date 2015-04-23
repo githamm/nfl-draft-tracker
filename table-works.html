@@ -33,26 +33,19 @@
             <tr>
                 <th>Player</th>
                 <th>Team</th>
-                <th>Position</th>
-                <th>School</th>
-                <th>Height</th>
-                <th>Weight</th>                
+                <th>College</th>
             </tr>
             {{#rows}}
 
             <tr>
                 <td>{{player}}</td>
                 <td>{{team}}</td>
-                <td>{{position}}</td>
-                <td>{{school}}</td>
-                <td>{{height}}</td>
-                <td>{{weight}}</td>
+                <td>{{college}}</td>
             </tr>
             {{/rows}}
 
         </table>
     </script>
-
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             // Google Sheet id here
@@ -73,8 +66,18 @@
             window.data = data;
             //for (var i = 0; i < data.length; i++) {
             //    document.getElementById("placeholder").innerHTML = i.player;
-           //Create a HTML Table element.
- };
+            var table = document.createElement('table'), tr, td, row, cell;
+for (row = 0; row < data.length; row++) {
+    tr = document.createElement('tr');
+    for (cell = 0; cell < 22; cell++) {
+        td = document.createElement('td');
+        tr.appendChild(td);
+        td.innerHTML = row * 22 + cell + 1;
+    }
+    table.appendChild(tr);
+}
+document.getElementById('handlebars-template').appendChild(table);
+            };
     </script>
 </body>
 
