@@ -3,13 +3,14 @@
 
 <head>
     <meta charset='utf-8'>
-    <title>Sheetsee Table Demo</title>
+    <title>Denver Broncos Draft Tracker</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <link href="css/footable.core.css" rel="stylesheet" type="text/css" />
     <link href="css/footable.standalone.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="http://extras.denverpost.com/foundation/css/foundation.css" />
     <link rel="stylesheet" href="http://extras.denverpost.com/foundation/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="http://extras.denverpost.com/weather-closures/weather-closures-styles.css" />
+     <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="js/tabletop.js"></script>
     <script type="text/javascript" src="js/sheetsee.js"></script>
@@ -17,16 +18,16 @@
     <script src="http://extras.denverpost.com/foundation/js/vendor/modernizr.js"></script>
     <style>
         .social-icons {
-            height: 35px;
-            width: 35px;
+            height: 38px;
+            width: 38px;
             border-radius: 50px;
             float: right;
             margin-right: 5px;
-            margin-bottom: 25px;
+            margin-bottom: 0px;
         }
         
         #top-bar-margin {
-            margin-bottom: 60px;
+            margin-bottom: 20px;
         }
         
         #nav-bar-title {
@@ -55,14 +56,44 @@
             height: 35px;
             padding: 10px 25px 0px 10px;
         }
+        img.footer-logo {
+            margin-bottom: 30px;
+        }
         
         iframe.scrbbl-embed {
             width: 100% !important;
-            height: 750px !important;
+            height: 700px !important;
         }
-        iframe.video {
+        iframe.slideshow {
+            width: 100% !important;
+            height: 1275px;
+        }
+        
+        #ad-space {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        img.header {
             width: 100%;
-            height: 550px;
+            height: 350px;
+        }
+        h1 {
+            font-family: "Oswald", Arial, sans-serif;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        blockquote {
+            font-family: Georgia, serif;
+            font-size: 34px;
+            line-height: 32px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        cite {
+            font-family: Georgia, serif;
+            font-size: 16px !important;
         }
     </style>
 </head>
@@ -74,7 +105,7 @@
         });
     </script>
     <div id="top-bar-margin">
-        <div class="fixed">
+        <!-- <div class="fixed"> -->
             <nav class="top-bar" data-topbar role="navigation">
                 <ul class="title-area">
                     <li class="name">
@@ -89,7 +120,7 @@
                     <ul class="right">
                         <!-- <li class="active"><a href="#">Right Button Active</a></li> -->
                         <li class="has-dropdown">
-                            <a href="#" id="nav-bar-dropdown">Go to Candidate Q&amp;A</a>
+                            <a href="#" id="nav-bar-dropdown">Menu</a>
                             <ul class="dropdown">
                                 <li class="has-dropdown"><a href="#at-large">At-Large</a>
                                     <ul class="dropdown">
@@ -135,6 +166,14 @@
                 </li>
                 <div class="clear"></div>
             </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-12 columns">
+        <h1>Denver Broncos draft tracker</h1>
+        <img class="header" src="placeholder.png">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in erat at lectus laoreet porta. Nullam vitae odio mattis, condimentum est id, molestie ipsum. Nulla nec vestibulum nisi. Nulla ultrices elit bibendum lorem malesuada bibendum. Integer elementum risus at lectus semper, fringilla dictum justo fermentum.</p>
         </div>
     </div>
 
@@ -189,9 +228,117 @@
     </div>
     <!-- close row -->
 
+    
+
     <div class="row">
-        <div class="medium-12 columns">
-        <iframe class="video" width="480" height="270" src="http://player.ooyala.com/iframe.html?ec=szY2p4bTq4ldune7EElbu8Fodx607zyW&pbid=ca7d0fce12a34a1d8440f09617dddf16&platform=html5-fallback" frameborder="0" allowfullscreen></iframe>
+        <div class="medium-8 columns">
+            <div class="flex-fideo">
+            <iframe class="video" width="480" height="270" src="http://player.ooyala.com/iframe.html?ec=szY2p4bTq4ldune7EElbu8Fodx607zyW&pbid=ca7d0fce12a34a1d8440f09617dddf16&platform=html5-fallback" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+            <div class="medium-4 columns">
+            <img src="placeholder.png">
+            </div>
+    </div>
+    <div class="row">
+        <div class="medium-10 medium-offset-2 columns">
+        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in erat at lectus laoreet porta. Nullam vitae odio mattis, condimentum est id, molestie ipsum.<cite>John Elway</cite></blockquote>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-10 medium-centered columns">
+        <iframe class="slideshow" src="http://photos.denverpost.com/2014/05/09/photos-nfl-draft-2014/" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="medium-12 small-centered columns">
+
+            <div id="ad-space">
+
+                <!-- begin Top Banner Ad Tag -->
+
+                <div id='div_Banner_bottom'>
+                    <script type='text/javascript'>
+                        googletag.defineSlot('/8013/denverpost.com', [728, 90], 'div_Banner_bottom').setTargeting('POS', 'top_leaderboard').addService
+
+                            (googletag.pubads());
+                        googletag.pubads().enableSyncRendering();
+                        googletag.enableServices();
+                        googletag.display('div_Banner_bottom');
+                    </script>
+                </div>
+
+                <!-- end Top Banner Ad Tag -->
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 small-centered columns">
+
+            <div id="ad-space">
+
+                <!-- begin Top Banner Ad Tag -->
+
+                <div id='div_Banner_top'>
+                    <script type='text/javascript'>
+                        googletag.defineSlot('/8013/denverpost.com', [728, 90], 'div_Banner_top').setTargeting('POS', 'top_leaderboard').addService
+
+                            (googletag.pubads());
+                        googletag.pubads().enableSyncRendering();
+                        googletag.enableServices();
+                        googletag.display('div_Banner_top');
+                    </script>
+                </div>
+
+                <!-- end Top Banner Ad Tag -->
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-10 large-centered medium-12 medium-centered small-12 columns">
+            <div class="row adcubes">
+                <div class="large-6 medium-6 small-12 columns">
+                    <div id="div_Cube5" class="adcube-wrap">
+                        <script type='text/javascript'>
+                            googletag.defineSlot('/8013/denverpost.com/sports', [300, 250], 'div_Cube5').addService(googletag.pubads());
+                            googletag.pubads().enableSyncRendering();
+                            googletag.enableServices();
+                            googletag.display('div_Cube5');
+                        </script>
+                    </div>
+                </div>
+                <div class="large-6 medium-6 hide-for-small columns">
+                    <div id="div_Cube6" class="adcube-wrap">
+                        <script type='text/javascript'>
+                            if (window.innerWidth >= 660) {
+                                googletag.defineSlot('/8013/denverpost.com/sports', [300, 250], 'div_Cube6').addService(googletag.pubads());
+                                googletag.pubads().enableSyncRendering();
+                                googletag.enableServices();
+                                googletag.display('div_Cube6');
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="adwrapper">
+        <a class="boxclose" href="javascript:void(0)" onclick="hideAdManual();"></a>
+        <center>
+            <div id="adframewrapper"></div>
+        </center>
+    </div>
+    <div class="row">
+    <hr>
+        <div class="medium-4 medium-centered columns">
+        <a href="http://denverpost.com/"><img class="footer-logo" src="dp-logo-black.png"></a>
         </div>
     </div>
 
@@ -209,7 +356,7 @@
         function showInfo(data) {
             var tableOptions = {
                 "data": data,
-                "pagination": 25,
+                "pagination": 15,
                 "tableDiv": "#draft-table",
                 "filterDiv": "#draft-tableFilter"
             }
@@ -217,6 +364,7 @@
             Sheetsee.initiateTableFilter(tableOptions)
         }
     </script>
+
 </body>
 
 </html>
