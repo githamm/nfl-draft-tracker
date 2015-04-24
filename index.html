@@ -16,6 +16,8 @@
     <script type="text/javascript" src="js/sheetsee.js"></script>
     <script type="text/javascript" src="js/footable.js"></script>
     <script src="http://extras.denverpost.com/foundation/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+
     <style>
         .social-icons {
             height: 38px;
@@ -91,7 +93,7 @@
         blockquote {
             font-family: Georgia, serif;
             font-size: 34px;
-            line-height: 32px;
+            line-height: 39px;
             margin-top: 50px;
             margin-bottom: 50px;
         }
@@ -99,6 +101,19 @@
         cite {
             font-family: Georgia, serif;
             font-size: 16px !important;
+        }
+
+        .section-header {
+            background-color: rgba(248, 114, 23, .9);
+            height: 35px;
+            font-family: "Oswald", Arial, sans-serif;
+            font-size: 20px;
+            padding-left: 20px;
+            padding-top: 2.5px;
+            margin-bottom: 30px;
+        }
+        body {
+            font-family: Arial, sans-serif;
         }
     </style>
 </head>
@@ -117,7 +132,7 @@
                     <a href="http://denverpost.com"><img src="http://extras.denverpost.com/candidate-qa/denver-2015/images/dp-logo-white.png" class="nav-logo"></a>
                 </li>
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Stories</span></a></li>
             </ul>
 
             <section class="top-bar-section">
@@ -125,7 +140,7 @@
                 <ul class="right">
                     <!-- <li class="active"><a href="#">Right Button Active</a></li> -->
                     <li class="has-dropdown">
-                        <a href="#" id="nav-bar-dropdown">Menu</a>
+                        <a href="#" id="nav-bar-dropdown">Stories</a>
                         <ul class="dropdown">
                             <li class="has-dropdown"><a href="#at-large">At-Large</a>
                                 <ul class="dropdown">
@@ -177,8 +192,14 @@
     <div class="row">
         <div class="medium-12 columns">
             <h1>Denver Broncos draft tracker</h1>
-            <img class="header" src="placeholder.png">
+            <img class="header" src="broncos-header.jpg">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in erat at lectus laoreet porta. Nullam vitae odio mattis, condimentum est id, molestie ipsum. Nulla nec vestibulum nisi. Nulla ultrices elit bibendum lorem malesuada bibendum. Integer elementum risus at lectus semper, fringilla dictum justo fermentum.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-12 columns">
+            <div class="section-header">NFL draft live blog and player list</div>
         </div>
     </div>
 
@@ -199,7 +220,7 @@
         <!-- close med-4 -->
 
         <div class="medium-8 columns">
-            <p>Search:
+            <p>Search by player, team or school
                 <input id="draft-tableFilter" type="text"></input>
             </p>
             <div id="draft-table"></div>
@@ -212,13 +233,13 @@
                         <th class="tHeader">Team</th>
                         <th class="tHeader">Position</th>
                         <th class="tHeader">School</th>
-                        <th>Ht / Wt</th>
+                        <th>Ht / Wt</th>                        
                     </tr>
                     {{#rows}}
 
                     <tr>
                         <td>{{pick}}</td>
-                        <td>{{player}}</td>
+                        <td><a href="{{link}}">{{player}}</a></td>
                         <td>{{team}}</td>
                         <td>{{position}}</td>
                         <td>{{school}}</td>
@@ -233,7 +254,35 @@
     </div>
     <!-- close row -->
 
+    <div class="row">
+        <div class="small-12 small-centered columns">
 
+            <div id="ad-space">
+
+                <!-- begin Top Banner Ad Tag -->
+
+                <div id='div_Banner_top'>
+                    <script type='text/javascript'>
+                        googletag.defineSlot('/8013/denverpost.com', [728, 90], 'div_Banner_top').setTargeting('POS', 'top_leaderboard').addService
+
+                            (googletag.pubads());
+                        googletag.pubads().enableSyncRendering();
+                        googletag.enableServices();
+                        googletag.display('div_Banner_top');
+                    </script>
+                </div>
+
+                <!-- end Top Banner Ad Tag -->
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-12 columns">
+            <div class="section-header">VIDEO | Broncos NFL draft analysis</div>
+        </div>
+    </div>
 
     <div class="row">
         <div class="medium-8 columns">
@@ -242,12 +291,28 @@
             </div>
         </div>
         <div class="medium-4 columns">
-            <img src="placeholder.png">
+            <div class="row adcubes">
+                <div class="large-6 medium-6 small-12 columns">
+                    <div id="div_Cube5" class="adcube-wrap">
+                        <script type='text/javascript'>
+                            googletag.defineSlot('/8013/denverpost.com/sports', [300, 250], 'div_Cube5').addService(googletag.pubads());
+                            googletag.pubads().enableSyncRendering();
+                            googletag.enableServices();
+                            googletag.display('div_Cube5');
+                        </script>
+                    </div>
+                </div>
         </div>
     </div>
     <div class="row">
         <div class="medium-10 medium-offset-2 columns">
-            <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in erat at lectus laoreet porta. Nullam vitae odio mattis, condimentum est id, molestie ipsum.<cite>John Elway</cite></blockquote>
+            <blockquote>We tried to move up last year with a team and they wanted my three first grandchildren. I&#8217;m not going to do that.<cite>John Elway, Denver Broncos general manager</cite></blockquote>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-12 columns">
+            <div class="section-header">PHOTOS | Slideshow from NFL draft</div>
         </div>
     </div>
 
@@ -256,7 +321,6 @@
             <iframe class="slideshow" src="http://photos.denverpost.com/2014/05/09/photos-nfl-draft-2014/" frameborder="0"></iframe>
         </div>
     </div>
-
 
     <div class="row">
         <div class="medium-12 small-centered columns">
@@ -282,30 +346,8 @@
     </div>
     </div>
 
-    <div class="row">
-        <div class="small-12 small-centered columns">
-
-            <div id="ad-space">
-
-                <!-- begin Top Banner Ad Tag -->
-
-                <div id='div_Banner_top'>
-                    <script type='text/javascript'>
-                        googletag.defineSlot('/8013/denverpost.com', [728, 90], 'div_Banner_top').setTargeting('POS', 'top_leaderboard').addService
-
-                            (googletag.pubads());
-                        googletag.pubads().enableSyncRendering();
-                        googletag.enableServices();
-                        googletag.display('div_Banner_top');
-                    </script>
-                </div>
-
-                <!-- end Top Banner Ad Tag -->
-            </div>
-
-        </div>
-    </div>
-    <div class="row">
+    
+    <!-- <div class="row">
         <div class="large-10 large-centered medium-12 medium-centered small-12 columns">
             <div class="row adcubes">
                 <div class="large-6 medium-6 small-12 columns">
@@ -339,7 +381,7 @@
         <center>
             <div id="adframewrapper"></div>
         </center>
-    </div>
+    </div> -->
     <div class="row">
         <hr>
         <div class="medium-4 medium-centered columns">
