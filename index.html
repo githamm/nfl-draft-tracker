@@ -5,18 +5,28 @@
     <meta charset='utf-8'>
     <title>Denver Broncos Draft Tracker</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link href="css/footable.core.css" rel="stylesheet" type="text/css" />
-    <link href="css/footable.standalone.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="http://extras.denverpost.com/foundation/css/foundation.css" />
-    <link rel="stylesheet" href="http://extras.denverpost.com/foundation/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="http://extras.denverpost.com/weather-closures/weather-closures-styles.css" />
+
     <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="js/tabletop.js"></script>
-    <script type="text/javascript" src="js/sheetsee.js"></script>
-    <script type="text/javascript" src="js/footable.js"></script>
-    <script src="http://extras.denverpost.com/foundation/js/vendor/modernizr.js"></script>
+
     <script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+
+    <!-- add for new table -->
+    <link rel="stylesheet" href="http://extras.denverpost.com/frameworks/tables/datatables/css/base.css" />
+    <link rel="stylesheet" href="http://extras.denverpost.com/frameworks/tables/datatables/css/base-datatable.css" />
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/5.5.1/css/foundation.min.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css">
+    <link rel="stylesheet" href="http://extras.denverpost.com/frameworks/tables/datatables/css/table-styles.css">
+
+    <!-- JS: Libraries -->
+    <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/jquery-1.11.1.js"></script>
+    <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/jquery.dataTables.min.js"></script>
+    <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/tabletop.js"></script>
+    <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/underscore.js"></script>
+    <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/handlebars-v1.3.0.js"></script>
+    <script src="http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.js"></script>
+    <script src="http://cdn.datatables.net/responsive/1.0.4/js/dataTables.responsive.js"></script>
+
 
     <style>
         .social-icons {
@@ -78,7 +88,7 @@
             text-align: center;
         }
         
-        img.header {
+        img.main {
             width: 100%;
             height: 350px;
         }
@@ -102,7 +112,7 @@
             font-family: Georgia, serif;
             font-size: 16px !important;
         }
-
+        
         .section-header {
             background-color: rgba(248, 114, 23, .9);
             height: 35px;
@@ -112,6 +122,7 @@
             padding-top: 2.5px;
             margin-bottom: 30px;
         }
+        
         body {
             font-family: Arial, sans-serif;
         }
@@ -119,11 +130,6 @@
 </head>
 
 <body>
-    <script type="text/javascript">
-        $(function() {
-            $('.footable').footable();
-        });
-    </script>
     <div id="top-bar-margin">
         <!-- <div class="fixed"> -->
         <nav class="top-bar" data-topbar role="navigation">
@@ -192,7 +198,7 @@
     <div class="row">
         <div class="medium-12 columns">
             <h1>Denver Broncos draft tracker</h1>
-            <img class="header" src="broncos-header.jpg">
+            <img class="main" src="broncos-header.jpg">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in erat at lectus laoreet porta. Nullam vitae odio mattis, condimentum est id, molestie ipsum. Nulla nec vestibulum nisi. Nulla ultrices elit bibendum lorem malesuada bibendum. Integer elementum risus at lectus semper, fringilla dictum justo fermentum.</p>
         </div>
     </div>
@@ -220,35 +226,25 @@
         <!-- close med-4 -->
 
         <div class="medium-8 columns">
-            <p>Search by player, team or school
-                <input id="draft-tableFilter" type="text"></input>
-            </p>
-            <div id="draft-table"></div>
 
-            <script id="draft-table_template" type="text/html">
-                <table class="footable">
+
+
+            <!-- Table headers - how you want them to look on page -->
+
+            <table id="searchable-table" class="display responsive no-wrap" width="100%">
+                <thead>
                     <tr>
-                        <th class="tHeader">Pick</th>
-                        <th class="tHeader">Player</th>
-                        <th class="tHeader">Team</th>
-                        <th class="tHeader">Position</th>
-                        <th class="tHeader">School</th>
-                        <th>Ht / Wt</th>                        
+                        <th>Pick</th>
+                        <th>Player</th>
+                        <th>Team</th>
+                        <th>Position</th>
+                        <th>School</th>
+                        <th>Ht./Wt.</th>
                     </tr>
-                    {{#rows}}
+                </thead>
+                <tbody></tbody>
+            </table>
 
-                    <tr>
-                        <td>{{pick}}</td>
-                        <td><a href="{{link}}">{{player}}</a></td>
-                        <td>{{team}}</td>
-                        <td>{{position}}</td>
-                        <td>{{school}}</td>
-                        <td>{{htwt}}</td>
-                    </tr>
-                    {{/rows}}
-
-                </table>
-            </script>
         </div>
         <!-- close med-8 -->
     </div>
@@ -302,51 +298,51 @@
                         </script>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="medium-10 medium-offset-2 columns">
-            <blockquote>We tried to move up last year with a team and they wanted my three first grandchildren. I&#8217;m not going to do that.<cite>John Elway, Denver Broncos general manager</cite></blockquote>
+        <div class="row">
+            <div class="medium-10 medium-offset-2 columns">
+                <blockquote>We tried to move up last year with a team and they wanted my three first grandchildren. I&#8217;m not going to do that.<cite>John Elway, Denver Broncos general manager</cite></blockquote>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="medium-12 columns">
-            <div class="section-header">PHOTOS | Slideshow from NFL draft</div>
+        <div class="row">
+            <div class="medium-12 columns">
+                <div class="section-header">PHOTOS | Slideshow from NFL draft</div>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="medium-10 medium-centered columns">
-            <iframe class="slideshow" src="http://photos.denverpost.com/2014/05/09/photos-nfl-draft-2014/" frameborder="0"></iframe>
+        <div class="row">
+            <div class="medium-10 medium-centered columns">
+                <iframe class="slideshow" src="http://photos.denverpost.com/2014/05/09/photos-nfl-draft-2014/" frameborder="0"></iframe>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="medium-12 small-centered columns">
+        <div class="row">
+            <div class="medium-12 small-centered columns">
 
-            <div id="ad-space">
+                <div id="ad-space">
 
-                <!-- begin Top Banner Ad Tag -->
+                    <!-- begin Top Banner Ad Tag -->
 
-                <div id='div_Banner_bottom'>
-                    <script type='text/javascript'>
-                        googletag.defineSlot('/8013/denverpost.com', [728, 90], 'div_Banner_bottom').setTargeting('POS', 'top_leaderboard').addService
+                    <div id='div_Banner_bottom'>
+                        <script type='text/javascript'>
+                            googletag.defineSlot('/8013/denverpost.com', [728, 90], 'div_Banner_bottom').setTargeting('POS', 'top_leaderboard').addService
 
-                            (googletag.pubads());
-                        googletag.pubads().enableSyncRendering();
-                        googletag.enableServices();
-                        googletag.display('div_Banner_bottom');
-                    </script>
+                                (googletag.pubads());
+                            googletag.pubads().enableSyncRendering();
+                            googletag.enableServices();
+                            googletag.display('div_Banner_bottom');
+                        </script>
+                    </div>
+
+                    <!-- end Top Banner Ad Tag -->
                 </div>
-
-                <!-- end Top Banner Ad Tag -->
             </div>
         </div>
     </div>
-    </div>
 
-    
+
     <!-- <div class="row">
         <div class="large-10 large-centered medium-12 medium-centered small-12 columns">
             <div class="row adcubes">
@@ -389,28 +385,22 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            // Google Sheet id here
-            var URL = "1N-bIPX-eU2B91AGROowruafQ1NoRaZLjmflOh-bqVNs"
-            Tabletop.init({
-                key: URL,
-                callback: showInfo,
-                simpleSheet: true
-            })
-        })
-
-        function showInfo(data) {
-            var tableOptions = {
-                "data": data,
-                "pagination": 15,
-                "tableDiv": "#draft-table",
-                "filterDiv": "#draft-tableFilter"
-            }
-            Sheetsee.makeTable(tableOptions)
-            Sheetsee.initiateTableFilter(tableOptions)
-        }
+    <!-- Templates -->
+    <script id="datatable-template" type="text/x-handlebars-template">
+        {{#each elements}} // The following correspond to spreadsheet headers
+        <tr>
+            <td data-title="Pick:">{{ pick }}</td>
+            <td data-title="Player:">{{ player }}</td>
+            <td data-title="Team:">{{ team }}</td>
+            <td data-title="Position:">{{ position }}</td>
+            <td data-title="School:">{{ school }}</td>
+            <td data-title="Htwt:">{{ htwt }}</td>
+        </tr>
+        {{/each}}
     </script>
+    <!-- Custom JS -->
+    <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/base.js"></script>
+    <script src="nfl-draft-table.js"></script>
 
 </body>
 
