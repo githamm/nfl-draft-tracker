@@ -70,26 +70,26 @@ function loadDataTable() {
         "oLanguage": {
             "sLengthMenu": "_MENU_ records per page"
         },
-        "iDisplayLength": 25,
+        "iDisplayLength": 15,
         "aaSorting": [[ 0, "asc" ]],
         "aoColumns": [
            {
-                "sWidth": "8%"
+                "sWidth": "9%"
                 // "sType": "formatted-num" 
             },{
                 "sWidth": "25%"
                 // "sType": "formatted-num" 
             },{
-                "sWidth": "15%"
+                "sWidth": "16%"
                 // "sType": "formatted-num" 
             },{
-                "sWidth": "10%"
+                "sWidth": "9%"
                 // "sType": "formatted-num" 
             },{
                 "sWidth": "27%"
                 // "sType": "formatted-num" 
             },{
-                "sWidth": "15%"
+                "sWidth": "14%"
                 // "sType": "formatted-num" 
             }
         ],
