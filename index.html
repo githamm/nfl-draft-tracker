@@ -3,7 +3,7 @@
 
 <head>
     <meta charset='utf-8'>
-    <title>Denver Broncos NFL Draft Tracker</title>
+    <title>NFL Draft Tracker</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://extras.mnginteractive.com/live/partners/MediaCenter/embedded_galleries/mc_embed_styles.css" type="text/css" />
@@ -16,6 +16,7 @@
     <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/jquery-1.11.1.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/tabletop.js"></script>
+    <script src="columnfilter.js"></script>
     <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/underscore.js"></script>
     <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/handlebars-v1.3.0.js"></script>
     <script src="http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.js"></script>
@@ -77,13 +78,14 @@
         }
         
         #ad-space {
-            margin-bottom: 15px;
+            margin-top: 20px;
+            margin-bottom: 40px;
             text-align: center;
         }
         
         img.main {
             width: 100%;
-            height: 400px;
+            height: auto;
         }
         
         h1 {
@@ -92,12 +94,22 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
-
+        
+        h3.subhead-panel {
+            font-family: "Oswald", Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 29px;
+            color: #808080;
+            margin-bottom: 2px;
+        }
+        
         h3.subhead {
             font-family: "Oswald", Arial, sans-serif;
             font-size: 24px;
             font-weight: bold;
             line-height: 29px;
+            color: #808080;
         }
         
         blockquote {
@@ -132,12 +144,31 @@
             font-style: italic;
             text-align: right;
         }
-
+        
         @media screen and (max-width: 750px) {
-    #ad-space {
-        display: none !important;
-    }
-}
+            #ad-space {
+                display: none !important;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            #mobile-image {
+                display: none !important;
+            }
+        }
+        
+        hr.panel-hr {
+            border: none;
+            height: 4px;
+            background-color: #808080;
+        }
+        p.anchor-links {
+            font-family: "Oswald", Arial, sans-serif;
+            font-size: 16px;
+        }
+        #table-top-margin {
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -149,29 +180,20 @@
                 <li class="name">
                     <a href="http://denverpost.com"><img src="http://extras.denverpost.com/candidate-qa/denver-2015/images/dp-logo-white.png" class="nav-logo"></a>
                 </li>
-                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+                <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li> -->
             </ul>
 
-            <section class="top-bar-section">
-                <!-- Right Nav Section -->
+            <!-- <section class="top-bar-section">
+                <!-- Right Nav Section
                 <ul class="right">
-                    <!-- <li class="active"><a href="#">Right Button Active</a></li> -->
+                    <!-- <li class="active"><a href="#">Right Button Active</a></li>
                     <li class="has-dropdown">
-                        <a href="#" id="nav-bar-dropdown">Stories</a>
+                        <a href="#" id="nav-bar-dropdown">Menu</a>
                         <ul class="dropdown">
-                            <li class="has-dropdown"><a href="#at-large">At-Large</a>
-                                <ul class="dropdown">
-                                    <li>
-                                        <label><a href="#at-large">At-Large Home</a></label>
-                                    </li>
-                                    <li><a href="#kniech">Robin Kniech</a></li>
-                                    <li><a href="#silva">Jose Silva</a></li>
-                                    <li><a href="#washington">Jeffery Washington</a></li>
-                                    <li><a href="#ortega">Deborah "Debbie" Ortega</a></li>
-                                    <li><a href="#khalatbari">Kayvan Khalatbari</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="http://denverpost.com/broncos">DenverPost.com/Broncos</a></li>
+                            <li><a href="#">Broncos Draft Picks</a></li>
+                            <li><a href="http://denverpost.com">Denver Post</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -179,8 +201,8 @@
                 <!-- Left Nav Section 
         <ul class="left">
           <li><a href="#">Left Nav Button</a></li>
-        </ul> -->
-            </section>
+        </ul> 
+            </section> -->
         </nav>
     </div>
     </div>
@@ -188,7 +210,11 @@
 
     <!-- Social media buttons -->
     <div class="row">
-        <div class="medium-12 columns">
+
+        <div class="large-8 medium-9 small-6 columns">
+            <p class="anchor-links"><a href="#live-blog">LIVE UPDATES</a> &bull; <a href="#players">DRAFTED PLAYERS</a> &bull; <a href="#video">VIDEO</a> &bull; <a href="#photos">PHOTOS</a> &bull; <a href="#more-coverage">MORE COVERAGE</a></p>
+        </div>
+        <div class="large-4 medium-3 small-6 columns">
             <ul class="post-meta-social-links text-center no-bullet" id="sticky-inner">
                 <li class="post-meta-social pm-googleplus ho-list">
                     <a href="javascript:void(0)" onclick="javascript:window.open('http://plus.google.com/share?url=http%3A%2F%2Fextras.denverpost.com%2Fcandidate-qa%2Fdenver-2015%2F', 'gpluswin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=1');"><img class="social-icons" src="http://extras.denverpost.com/projects/2014/latino-project/images/social-gplus.png" alt="Share on Google Plus">
@@ -208,20 +234,21 @@
     </div>
 
     <div class="row">
-        <div class="medium-12 columns">
+        <div class="large-12 medium-12 small-12 columns">
             <h1>2015 NFL draft tracker</h1>
-            <img class="main" src="nfl-draft-crop-315.jpg">
-            <div class="credit">Photographer, Associated Press</div>
+            <img class="main" src="nfl-draft-crop-543.jpg">
+            <div class="credit">Elsa, Getty Images</div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in erat at lectus laoreet porta. Nullam vitae odio mattis, condimentum est id, molestie ipsum. Nulla nec vestibulum nisi. Nulla ultrices elit bibendum lorem malesuada bibendum. Integer elementum risus at lectus semper, fringilla dictum justo fermentum.</p>
         </div>
     </div>
 
-    <div class="row">
-        <div class="large-4 medium-4 small-12 columns">
-            <div class="section-header">LIVE UPDATES</div>
+    <div class="row">    
+    <a name="live-blog"></a>    
+        <div class="large-4 medium-12 small-12 columns">
+            <div class="section-header" id="table-top-margin">LIVE UPDATES</div>
             <div class="scrbbl-container">
                 <div class="scrbbl-embed" data-src="/event/1095244/16749"></div>
-                <script>
+                <script type="text/javascript">
                     (function(d, s, id) {
                         var js, ijs = d.getElementsByTagName(s)[0];
                         if (d.getElementById(id)) return;
@@ -235,8 +262,9 @@
         </div>
         <!-- close med-4 -->
 
-        <div class="large-8 medium-8 small-12 columns">
-            <div class="section-header">DRAFTED PLAYERS</div>
+        <a name="players"></a>
+        <div class="large-8 medium-12 small-12 columns">
+            <div class="section-header" id="table-top-margin">DRAFTED PLAYERS</div>
 
 
             <!-- Table headers - how you want them to look on page -->
@@ -244,8 +272,8 @@
             <table id="searchable-table" class="display responsive no-wrap" width="100%">
                 <thead>
                     <tr>
-                        <th>Rnd</th>
-                        <th>Pick</th>
+                        <th>Round</th>
+                        <th>Pk</th>
                         <th>Player</th>
                         <th>School</th>
                         <th>Pos</th>
@@ -253,6 +281,16 @@
                     </tr>
                 </thead>
                 <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <th>Show all</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Show all</th>
+                    </tr>
+                </tfoot>
             </table>
 
         </div>
@@ -261,38 +299,48 @@
     <!-- close row -->
 
     <div class="row">
-            <div class="large-7 medium-7 small-12 columns">
-                <div class="panel">
-                    <h3 class="subhead">Broncos wish list</h3>
-                    <p>Players the Broncos would love to take with their first-round pick:</p>
-                    <ul>
-                        <li><strong>Malcolm Brown, DT</strong> <em>6-feet-2, 319 pounds, Texas</em></li>
-                        <li><strong>T.J. Clemmings, OT</strong> <em>6-5, 309, Pittsburgh</em></li>
-                        <li><strong>La'el Collins, OT</strong> <em>6-4, 305, Louisiana State</em></li>
-                        <li><strong>Carl Davis, DT</strong> <em>6-5, 320, Iowa</em></li>
-                        <li><strong>Cameron Erving, C</strong> <em>6-5, 313, Florida State</em></li>
-                        <li><strong>Ereck Flowers, OT</strong> <em>6-6, 329, Miami</em></li>
-                        <li><strong>D.J. Humphries, OT</strong> <em>6-5, 307, Florida</em></li>
-                        <li><strong>Jordan Phillips, DT</strong> <em>6-5, 329, Oklahoma</em></li>
-                        <li><strong>Ty Sambrailo, OL</strong> <em>6-6, 311, Colorado State</em></li>
-                        <li><strong>Danny Shelton, DT</strong> <em>6-2, 339, Washington</em></li>
-                    </ul>
-                    <p> <a href="http://www.denverpost.com/sports/ci_27978050/john-elway-draws-blueprint-designed-to-fit-all-scenarios-for-broncos"><em>Read more &rsaquo;&rsaquo;</a></em></p>
-                </div>
+        <a name="more-coverage"></a>
+        <div class="large-7 medium-7 small-12 columns">
+            <div class="panel">
+                <h3 class="subhead-panel">BRONCOS WISH LIST</h3>
+                <hr class="panel-hr">
+                <p>Players the Broncos would love to take with their first-round pick:</p>
+                <ul>
+                    <li><strong><a href="http://www.nfl.com/draft/2015/profiles/malcolm-brown?id=2552382">Malcolm Brown, DT</a></strong> <em>6-feet-2, 319 pounds, Texas</em></li>
+                    <li><strong><a href="http://www.nfl.com/draft/2015/profiles/t.j.-clemmings?id=2552365">T.J. Clemmings, OT</a></strong> <em>6-5, 309, Pittsburgh</em></li>
+                    <li><strong><a href="http://www.nfl.com/draft/2015/profiles/la%27el-collins?id=2552361">La'el Collins, OT</a></strong> <em>6-4, 305, Louisiana State</em></li>
+                    <li><strong><a href="http://www.nfl.com/draft/2015/profiles/carl-davis?id=2552280">Carl Davis, DT</a></strong> <em>6-5, 320, Iowa</em></li>
+                    <li><strong><a href="http://www.nfl.com/draft/2015/profiles/cameron-erving?id=2552240">Cameron Erving, C</a></strong> <em>6-5, 313, Florida State</em></li>
+                    <li><strong><a href="http://www.nfl.com/draft/2015/profiles/ereck-flowers?id=2552452">Ereck Flowers, OT</a></strong> <em>6-6, 329, Miami</em></li>
+                    <li><strong><a href="http://www.nfl.com/draft/2015/profiles/d.j.-humphries?id=2552626">D.J. Humphries, OT</a></strong> <em>6-5, 307, Florida</em></li>
+                    <li><strong><a href="http://www.nfl.com/draft/2015/profiles/jordan-phillips?id=2552492">Jordan Phillips, DT</a></strong> <em>6-5, 329, Oklahoma</em></li>
+                    <li><strong><a href="http://www.nfl.com/draft/2015/profiles/ty-sambrailo?id=2552366">Ty Sambrailo, OL</a></strong> <em>6-6, 311, Colorado State</em></li>
+                    <li><strong><a href="http://www.nfl.com/draft/2015/profiles/danny-shelton?id=2552325">Danny Shelton, DT</a></strong> <em>6-2, 339, Washington</em></li>
+                </ul>
+                <p> <a href="http://www.denverpost.com/sports/ci_27978050/john-elway-draws-blueprint-designed-to-fit-all-scenarios-for-broncos"><em>Read more &rsaquo;&rsaquo;</a></em>
+                </p>
             </div>
-            <div class="large-5 medium-5 small-12 columns">
-                <div class="panel">
-                    <h3 class="subhead">More Broncos coverage on <a href="http://denverpost.com/broncos">DenverPost.com/Broncos</a> and Twitter:</h3> 
-                        <li>Troy Renck <a href="https://twitter.com/troyrenck">@TroyRenck</a></li>
-                        <li>Nicki Jhavbala <a href="https://twitter.com/NickiJhabvala">@NickiJhabvala</a></li>
-                        <li>Benjamin Hochman <a href="https://twitter.com/hochman">@hochman</a></li>
-                        <li>Mark Kiszla <a href="https://twitter.com/markkiszla">@MarkKiszla</a></li>
-                        <li>Mike Chambers <a href="https://twitter.com/MikeChambers">@MikeChambers</a></li>
-                        <li>Denver Post Broncos <a href="https://twitter.com/PostBroncos">@PostBroncos</a></li>
-                    </ul>
-                </div>
+        </div>
+        <div class="large-5 medium-5 small-12 columns">
+            <div class="panel">
+                <h3 class="subhead-panel">MORE ONLINE COVERAGE</h3>
+                <hr class="panel-hr">
+                <h3 class="subhead"><a href="http://extras.denverpost.com/broncos-2015-draft-picks/">Profiles of Broncos&#8217; 2015 draft picks</a></h3>
+                <hr>
+                <h3 class="subhead"><a href="http://denverpost.com/broncos">DenverPost.com/Broncos</a></h3>
+                <hr>
+                <h3 class="subhead">Twitter</h3>
+                <li>Troy Renck <a href="https://twitter.com/troyrenck">@TroyRenck</a></li>
+                <li>Nicki Jhabvala <a href="https://twitter.com/NickiJhabvala">@NickiJhabvala</a></li>
+                <li>Benjamin Hochman <a href="https://twitter.com/hochman">@hochman</a></li>
+                <li>Mark Kiszla <a href="https://twitter.com/markkiszla">@MarkKiszla</a></li>
+                <li>Mike Chambers <a href="https://twitter.com/MikeChambers">@MikeChambers</a></li>
+                <li>Dave Wright <a href="https://twitter.com/davewright">@DaveWright</a></li>
+                <li>Denver Post Broncos <a href="https://twitter.com/PostBroncos">@PostBroncos</a></li>
+                </ul>
             </div>
-       
+        </div>
+
     </div>
 
     <div class="row">
@@ -320,6 +368,7 @@
     </div>
 
     <div class="row">
+        <a name="video"></a>
         <div class="medium-12 columns">
             <div class="section-header">VIDEO | Broncos NFL draft analysis</div>
         </div>
@@ -331,17 +380,17 @@
                 <iframe class="video" width="480" height="270" src="http://player.ooyala.com/iframe.html?ec=szY2p4bTq4ldune7EElbu8Fodx607zyW&pbid=ca7d0fce12a34a1d8440f09617dddf16&platform=html5-fallback" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-            <div class="row adcubes">
-                <div class="large-4 medium-6 small-12 columns">
-                    <div id="div_Cube5" class="adcube-wrap">
-                        <script type='text/javascript'>
-                            googletag.defineSlot('/8013/denverpost.com/sports', [300, 250], 'div_Cube5').addService(googletag.pubads());
-                            googletag.pubads().enableSyncRendering();
-                            googletag.enableServices();
-                            googletag.display('div_Cube5');
-                        </script>
-                    </div>
-                
+        <div class="row adcubes">
+            <div class="large-4 medium-6 small-12 columns">
+                <div id="div_Cube5" class="adcube-wrap">
+                    <script type='text/javascript'>
+                        googletag.defineSlot('/8013/denverpost.com/sports', [300, 250], 'div_Cube5').addService(googletag.pubads());
+                        googletag.pubads().enableSyncRendering();
+                        googletag.enableServices();
+                        googletag.display('div_Cube5');
+                    </script>
+                </div>
+
             </div>
         </div>
         <div class="row">
@@ -351,17 +400,18 @@
         </div>
 
         <div class="row">
+            <a name="photos"></a>
             <div class="medium-12 columns">
                 <div class="section-header">PHOTOS | Slideshow from NFL draft</div>
             </div>
         </div>
 
         <div class="row">
-            <div class="small-10 small-centered columns">
-                <script src="http://extras.mnginteractive.com/live/partners/MediaCenter/embedded_galleries/mc_embed.js"></script>
+            <div class="medium-10 medium-centered columns">
+                <script type="text/javascript" src="http://extras.mnginteractive.com/live/partners/MediaCenter/embedded_galleries/mc_embed.js"></script>
                 <div id="mc-embed-container"></div>
                 <div class="clear" style="margin-bottom:10px;"></div>
-                <script>
+                <script type="text/javascript">
                     $(document).ready(function() {
                         mc_embed_gallery = new MCGallery({
                             url: 'http://photos.denverpost.com/2014/05/09/photos-nfl-draft-2014/',
@@ -437,7 +487,7 @@
     </div> -->
     <div class="row">
         <hr>
-        <div class="small-4 small-centered columns">
+        <div class="large-4 large-centered medium-4 medium-centered small-4 small-centered columns">
             <a href="http://denverpost.com/"><img class="footer-logo" src="dp-logo-black.png"></a>
         </div>
     </div>
