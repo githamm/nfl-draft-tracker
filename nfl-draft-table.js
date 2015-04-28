@@ -77,19 +77,19 @@ function loadDataTable() {
                 "sWidth": "9%"
                 // "sType": "formatted-num" 
             },{
+                "sWidth": "9%"
+                // "sType": "formatted-num" 
+            },{
                 "sWidth": "25%"
                 // "sType": "formatted-num" 
             },{
-                "sWidth": "16%"
+                "sWidth": "25%"
                 // "sType": "formatted-num" 
             },{
                 "sWidth": "9%"
                 // "sType": "formatted-num" 
             },{
-                "sWidth": "27%"
-                // "sType": "formatted-num" 
-            },{
-                "sWidth": "14%"
+                "sWidth": "18%"
                 // "sType": "formatted-num" 
             }
         ],
