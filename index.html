@@ -5,185 +5,91 @@
     <meta charset='utf-8'>
     <title>NFL Draft Tracker</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel="canonical" href="http://denverpost.com/broncos" />
+    <link rel="shortcut icon" href="http://extras.mnginteractive.com/live/media/favIcon/dpo/favicon.ico" type="image/x-icon" />
+    <meta name="distribution" content="global" />
+    <meta name="robots" content="index, nofollow" />
+    <meta name="title" content="2015 NFL draft tracker" />
+    <meta name="language" content="en, sv" />
+    <meta name="Copyright" content="Copyright &copy; The Denver Post." />
+    <link rel="author" href="humans.txt" />
+    <meta name="description" content="Live coverage of the 2015 NFL draft from The Denver Post, including live updates, picks around the NFL and selections from the Denver Broncos.">
+    <meta name="news_keywords" content="NFL, draft, football, Broncos, Denver">
+    <meta name="twitter:card" value="summary" />
+    <meta name="twitter:url" value="http://extras.denverpost.com/projects/2015/nfl-draft-2015/index.html" />
+    <meta name="twitter:title" value="2015 NFL draft tracker" />
+    <meta name="twitter:description" value="Live coverage of the 2015 NFL draft from The Denver Post, including live updates, picks around the NFL and selections from the Denver Broncos." />
+    <meta name="twitter:image" value="http://extras.denverpost.com/projects/2015/nfl-draft-2015/nfl-draft-crop-543.jpg" />
+    <meta name="twitter:site" value="@denverpost" />
+    <meta name="twitter:domain" value="denverpost.com" />
+    <meta name="twitter:creator" content="@DenverPost">
+    <meta name="twitter:app:name:iphone" value="Denver Post">
+    <meta name="twitter:app:name:ipad" value="Denver Post">
+    <meta name="twitter:app:name:googleplay" value="The Denver Post">
+    <meta name="twitter:app:id:iphone" value="id375264133">
+    <meta name="twitter:app:id:ipad" value="id409389010">
+    <meta name="twitter:app:id:googleplay" value="com.ap.denverpost" />
+    <meta property="fb:app_id" content="105517551922" />
+    <meta property="og:title" content="2015 NFL draft tracker" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://extras.denverpost.com/projects/2015/nfl-draft-2015/index.html" />
+    <meta property="og:image" content="http://extras.denverpost.com/projects/2015/nfl-draft-2015/nfl-draft-crop-543.jpg" />
+    <meta property="og:site_name" content="The Denver Post" />
+    <meta property="og:description" content="Live coverage of the 2015 NFL draft from The Denver Post, including live updates, picks around the NFL and selections from the Denver Broncos." />
+    <meta property="article:publisher" content="https://www.facebook.com/denverpost" />
+    <meta name="google-site-verification" content="2bKNvyyGh6DUlOvH1PYsmKN4KRlb-0ZI7TvFtuKLeAc" />
     <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://extras.mnginteractive.com/live/partners/MediaCenter/embedded_galleries/mc_embed_styles.css" type="text/css" />
-    <link rel="stylesheet" href="http://extras.denverpost.com/frameworks/tables/datatables/css/base.css" />
-    <link rel="stylesheet" href="http://extras.denverpost.com/frameworks/tables/datatables/css/base-datatable.css" />
-    <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/5.5.1/css/foundation.min.css">
-    <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.css">
-    <link rel="stylesheet" href="http://cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css">
-    <link rel="stylesheet" href="http://extras.denverpost.com/frameworks/tables/datatables/css/table-styles.css">
+    <link rel="stylesheet" href="http://extras.denverpost.com/frameworks/tables/datatables/css/base.css" type="text/css">
+    <link rel="stylesheet" href="http://extras.denverpost.com/frameworks/tables/datatables/css/base-datatable.css" type="text/css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/5.5.1/css/foundation.min.css" type="text/css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.css" type="text/css">
+    <link rel="stylesheet" href="http://cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css" type="text/css">
+    <link rel="stylesheet" href="http://extras.denverpost.com/frameworks/tables/datatables/css/table-styles.css" type="text/css">
+    <link rel="stylesheet" href="css/nfl-draft-tracker.css" type="text/css">
     <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/jquery-1.11.1.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/tabletop.js"></script>
-    <script src="columnfilter.js"></script>
+    <script src="js/columnfilter.js"></script>
     <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/underscore.js"></script>
     <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/lib/handlebars-v1.3.0.js"></script>
     <script src="http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.js"></script>
     <script src="http://cdn.datatables.net/responsive/1.0.4/js/dataTables.responsive.js"></script>
     <script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
-    <style>
-        .social-icons {
-            height: 38px;
-            width: 38px;
-            border-radius: 50px;
-            float: right;
-            margin-right: 5px;
-            margin-bottom: 0px;
-        }
-        
-        #top-bar-margin {
-            margin-bottom: 20px;
-        }
-        
-        #nav-bar-title {
-            font-family: 'Georgia', serif;
-            font-size: 24px;
-        }
-        
-        #nav-bar-dropdown {
-            font-size: 14px;
-            font-weight: bold;
-        }
-        
-        .share-buttons {
-            height: 40px;
-            width: 40px;
-        }
-        
-        li.share-list {
-            display: inline;
-            list-style-type: none;
-            float: right;
-            padding-right: 5px;
-        }
-        
-        img.nav-logo {
-            height: 35px;
-            padding: 10px 25px 0px 10px;
-        }
-        
-        img.footer-logo {
-            margin-bottom: 30px;
-        }
-        
-        .scrbbl-embed {
-            width: 100% !important;
-            height: 700px !important;
-        }
-        
-        iframe.slideshow {
-            width: 100% !important;
-            height: 1275px;
-        }
-        
-        #ad-space {
-            margin-top: 20px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        
-        img.main {
-            width: 100%;
-            height: auto;
-        }
-        
-        h1 {
-            font-family: "Oswald", Arial, sans-serif;
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        h3.subhead-panel {
-            font-family: "Oswald", Arial, sans-serif;
-            font-size: 24px;
-            font-weight: bold;
-            line-height: 29px;
-            color: #808080;
-            margin-bottom: 2px;
-        }
-        
-        h3.subhead {
-            font-family: "Oswald", Arial, sans-serif;
-            font-size: 24px;
-            font-weight: bold;
-            line-height: 29px;
-            color: #808080;
-        }
-        
-        blockquote {
-            font-family: Georgia, serif;
-            font-size: 34px;
-            line-height: 39px;
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
-        
-        cite {
-            font-family: Georgia, serif;
-            font-size: 16px !important;
-            line-height: 25px;
-            text-align: right;
-        }
-        
-        .section-header {
-            background-color: rgba(255, 119, 51, 1.0);
-            height: 35px;
-            font-family: "Oswald", Arial, sans-serif;
-            font-size: 20px;
-            padding-left: 20px;
-            padding-top: 2.5px;
-            margin-bottom: 30px;
-        }
-        
-        .carousel-caption {
-            height: 175px!important;
-        }
-        
-        .credit {
-            font-size: 11px;
-            font-style: italic;
-            text-align: right;
-        }
-        
-        @media screen and (max-width: 750px) {
-            #ad-space {
-                display: none !important;
-            }
-        }
-
-        @media screen and (max-width: 500px) {
-            #mobile-image {
-                display: none !important;
-            }
-        }
-        
-        hr.panel-hr {
-            border: none;
-            height: 4px;
-            background-color: #808080;
-        }
-        p.anchor-links {
-            font-family: "Oswald", Arial, sans-serif;
-            font-size: 16px;
-        }
-        #table-top-margin {
-            margin-top: 20px;
-        }
-        p.intro {
-            font-size: 18px;
-        }
-    </style>
+    <script type="text/javascript">
+        //Chartbeat startup
+        var _sf_startpt = (new Date()).getTime();
+        var _sf_async_config = {};
+    </script>
 </head>
 
 <body>
+    <div id="omniture" style="display:none">
+        <script type="text/javascript">
+            var s_account = "denverpost"
+        </script>
+        <script type="text/javascript" src="http://extras.mnginteractive.com/live/omniture/sccore.js"></script>
+        <script type="text/javascript">
+            s.trackExternalLinks = false
+            s.pageName = document.title
+            s.channel = "NFL Draft Tracker"
+            s.prop1 = "D=g"
+            s.prop2 = "NFL Draft Tracker/?"
+            s.prop3 = "NFL Draft Tracker/?/?"
+            s.prop4 = "NFL Draft Tracker/?/?/?"
+            s.prop5 = "NFL Draft Tracker/?/?/?/" + document.title
+            var s_code = s.t();
+            if (s_code) document.write(s_code)
+        </script>
+        <noscript><img src="http://denverpost.112.2O7.net/b/ss/denverpost/1/H.17--NS/0" height="1" width="1" border="0" alt="" /></noscript>
+    </div>
+
     <div id="top-bar-margin">
         <!-- <div class="fixed"> -->
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
                 <li class="name">
-                    <a href="http://denverpost.com"><img src="http://extras.denverpost.com/candidate-qa/denver-2015/images/dp-logo-white.png" class="nav-logo"></a>
+                    <a href="http://denverpost.com"><img src="http://extras.denverpost.com/candidate-qa/denver-2015/images/dp-logo-white.png" alt="The Denver Post logo" class="nav-logo"></a>
                 </li>
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
                 <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li> -->
@@ -220,15 +126,15 @@
         <div class="large-4 medium-3 small-6 columns">
             <ul class="post-meta-social-links text-center no-bullet" id="sticky-inner">
                 <li class="post-meta-social pm-googleplus ho-list">
-                    <a href="javascript:void(0)" onclick="javascript:window.open('http://plus.google.com/share?url=http%3A%2F%2Fextras.denverpost.com%2Fcandidate-qa%2Fdenver-2015%2F', 'gpluswin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=1');"><img class="social-icons" src="http://extras.denverpost.com/projects/2014/latino-project/images/social-gplus.png" alt="Share on Google Plus">
+                    <a href="javascript:void(0)" onclick="javascript:window.open('http://plus.google.com/share?url=http%3A%2F%2Fdpo.st%2FNFLdraft15', 'gpluswin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=1');"><img class="social-icons" src="http://extras.denverpost.com/projects/2014/latino-project/images/social-gplus.png" alt="Share on Google Plus">
                     </a>
                 </li>
                 <li class="post-meta-social pm-twitter ho-list">
-                    <a href="javascript:void(0)" onclick="javascript:window.open('http://twitter.com/share?text=The%20Denver%20Post%20Denver%20City%20Council%20Candidate%20Q%20and%20As&amp;url=http%3A%2F%2Fdpo.st%2Fcouncil-qa&amp;via=denverpost', 'twitwin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=1');"><img class="social-icons" src="http://extras.denverpost.com/projects/2014/latino-project/images/social-twitter.png" alt="Tweet this story">
+                    <a href="javascript:void(0)" onclick="javascript:window.open('http://twitter.com/share?text=Live%20coverage%20of%20the%202015%20NFL%20draft&amp;url=http%3A%2F%2Fdpo.st%2FNFLdraft15&amp;via=denverpost', 'twitwin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=1');"><img class="social-icons" src="http://extras.denverpost.com/projects/2014/latino-project/images/social-twitter.png" alt="Tweet this story">
                     </a>
                 </li>
                 <li class="post-meta-social pm-facebook text-center ho-list">
-                    <a href="javascript:void(0)" onclick="javascript:window.open('http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fextras.denverpost.com%2Fcandidate-qa%2Fdenver-2015%2F&amp;p[images][0]=&amp;p[title]=The%20Denver%20Post%20Denver%20City%20Council%20Candidate%20Q%20\&amp;%20As&amp;p[summary]=Denver+City+Council+candidate+Q+\&amp;+As', 'fbwin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=1');"><img class="social-icons" src="http://extras.denverpost.com/projects/2014/latino-project/images/social-facebook.png" alt="Facebook">
+                    <a href="javascript:void(0)" onclick="javascript:window.open('http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fdpo.st%2FNFLdraft15&amp;p[images][0]=&amp;p[title]=2015%20NFL%20Draft%20Tracker\&amp;%20As&amp;p[summary]=2015+NFL+Draft+Tracker', 'fbwin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=1');"><img class="social-icons" src="http://extras.denverpost.com/projects/2014/latino-project/images/social-facebook.png" alt="Facebook">
                     </a>
                 </li>
                 <div class="clear"></div>
@@ -239,14 +145,36 @@
     <div class="row">
         <div class="large-12 medium-12 small-12 columns">
             <h1>2015 NFL draft tracker</h1>
-            <img class="main" src="nfl-draft-crop-543.jpg">
+            <img class="main" src="images/nfl-draft-crop-543.jpg" alt="Bradley Roby after being chosen by the Denver Broncos in the 2014 NFL draft" title="Bradley Roby at the 2014 NFL draft">
             <div class="credit">Elsa, Getty Images</div>
             <p class="intro">Live coverage of the 2015 NFL draft from The Denver Post, including live updates, picks around the NFL and selections from the Denver Broncos.</p>
         </div>
     </div>
 
-    <div class="row">    
-    <a name="live-blog"></a>    
+    <div class="row">
+        <div class="large-8 large-centered medium-12 medium-centered columns">
+            <div id="ad-space">
+
+                <!-- begin Top Banner Ad Tag -->
+
+                <div id='div_Banner_top'>
+                    <script type='text/javascript'>
+                        googletag.defineSlot('/8013/denverpost.com', [728, 90], 'div_Banner_top').setTargeting('POS', 'top_leaderboard').addService
+
+                            (googletag.pubads());
+                        googletag.pubads().enableSyncRendering();
+                        googletag.enableServices();
+                        googletag.display('div_Banner_top');
+                    </script>
+                </div>
+
+                <!-- end Top Banner Ad Tag -->
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <a name="live-blog"></a>
         <div class="large-4 medium-12 small-12 columns">
             <div class="section-header" id="table-top-margin">LIVE UPDATES</div>
             <div class="scrbbl-container">
@@ -263,7 +191,6 @@
                 </script>
             </div>
         </div>
-        <!-- close med-4 -->
 
         <a name="players"></a>
         <div class="large-8 medium-12 small-12 columns">
@@ -297,9 +224,7 @@
             </table>
 
         </div>
-        <!-- close med-8 -->
     </div>
-    <!-- close row -->
 
     <div class="row">
         <a name="more-coverage"></a>
@@ -346,7 +271,7 @@
     </div>
 
     <div class="row">
-        <div class="small-12 small-centered columns">
+        <div class="medium-12 medium-centered columns">
             <div id="ad-space">
 
                 <!-- begin Top Banner Ad Tag -->
@@ -426,7 +351,7 @@
     </div>
 
     <div class="row">
-        <div class="medium-12 small-centered columns">
+        <div class="large-9 large-centered medium-12 medium-centered columns">
 
             <div id="ad-space">
 
@@ -486,8 +411,8 @@
     </div> -->
     <div class="row">
         <hr>
-        <div class="large-4 large-centered medium-4 medium-centered small-4 small-centered columns">
-            <a href="http://denverpost.com/"><img class="footer-logo" src="dp-logo-black.png"></a>
+        <div class="large-4 large-centered medium-4 medium-centered small-10 small-centered columns">
+            <a href="http://denverpost.com/"><img class="footer-logo" src="images/dp-logo-black.png" alt="The Denver Post logo"></a>
         </div>
     </div>
 
@@ -506,7 +431,30 @@
     </script>
     <!-- Custom JS -->
     <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/base.js"></script>
-    <script src="nfl-draft-table.js"></script>
+    <script src="js/nfl-draft-table.js"></script>
+
+    <script type="text/javascript">
+        //Chartbeat stuff
+        _sf_async_config.uid = 2671;
+        _sf_async_config.domain = 'denverpost.com';
+        _sf_async_config.sections = 'SPXXFBNDRAFTTRACKER';
+        _sf_async_config.useCanonical = true;
+        (function() {
+            function loadChartbeat() {
+                window._sf_endpt = (new Date()).getTime();
+                var e = document.createElement('script');
+                e.setAttribute('language', 'javascript');
+                e.setAttribute('type', 'text/javascript');
+                e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+                document.body.appendChild(e);
+            }
+            var oldonload = window.onload;
+            window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() {
+                oldonload();
+                loadChartbeat();
+            };
+        })();
+    </script>
 
 </body>
 
