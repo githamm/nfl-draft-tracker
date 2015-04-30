@@ -106,14 +106,14 @@ function loadDataTable() {
         .columnFilter({
             aoColumns: [{
                     type: "select",
-                    values: ['1', '2']
+                    values: ['1', '2', '3', '4', '5', '6', '7']
                 },
                 null,
                 null,
                 null,
                 null, {
                     type: "select",
-                    values: ['Broncos', 'Bucs', 'Oilers', 'Rams']
+                    values: ['49ers', 'Bears', 'Bengals', 'Bills', 'Broncos', 'Bucaneers', 'Cardinals', 'Chargers', 'Chiefs', 'Colts', 'Cowboys', 'Dolphins', 'Eagles', 'Falcons', 'Giants', 'Jaguars', 'Jets', 'Lions', 'Packers', 'Panthers', 'Patriots', 'Raiders', 'Rams', 'Ravens', 'Redskins', 'Saints', 'Seahawks', 'Steelers', 'Texans', 'Titans', 'Vikings']
                 }
             ]
         });

@@ -47,6 +47,7 @@
         .scrbbl-embed {
             width: 100% !important;
             height: 700px !important;
+            margin-bottom: 25px !important;
         }
         
         iframe.slideshow {
