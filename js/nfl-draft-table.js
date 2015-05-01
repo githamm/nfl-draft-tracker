@@ -68,10 +68,11 @@ function loadDataTable() {
         "oLanguage": {
             "sLengthMenu": "_MENU_ records per page"
         },
-        "iDisplayLength": 15,
-        "aaSorting": [
-            [0, "asc"]
-        ],
+        "iDisplayLength": 16,
+        "iDisplayStart": 32,
+        //"aaSorting": [
+        //    [0, "asc"]
+        //],
         "aoColumns": [{
             "sWidth": "9%"
                 // "sType": "formatted-num" 
