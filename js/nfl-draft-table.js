@@ -71,7 +71,7 @@ function loadDataTable() {
         "iDisplayLength": 16, // number of records per page
         // "iDisplayStart": 176, // where to start on table load
         "aaSorting": [
-            [0, "asc"]
+            [1, "asc"]
         ],
         "aoColumns": [{
             "sWidth": "9%"
