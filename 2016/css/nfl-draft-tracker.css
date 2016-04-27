@@ -90,7 +90,7 @@
             color: #808080;
         }
 
-        h4 {
+        h4.panelsub {
             font-family: "Oswald", Arial, sans-serif;
             font-size: 18px;
             font-weight: bold;
@@ -98,6 +98,10 @@
             color: #808080;
         }
         
+        ul {
+            font-weight: bold;
+        }
+
         blockquote {
             font-family: Georgia, serif;
             font-size: 34px;
