@@ -4,7 +4,7 @@ var google_docs_one = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US
 var google_docs_two = '&output=html';
 
 // Google Docs spreadsheet key
-var spreadsheet_key = '1ZSWbbPu96UxrgXLvOLmOyoaOQ8mCoRTlBNc9KDeRWXo';
+var spreadsheet_key = '1Iqh1LZ5NHXGAakgTCnRjixguV7v557iud6a7ALzTz3Q';
 
 // Template sources and what DIVs they will appear in
 var templates = [{
@@ -71,7 +71,7 @@ function loadDataTable() {
         "iDisplayLength": 16, // number of records per page
         "iDisplayStart": 0, // where to start on table load
         "aaSorting": [
-            [1, "asc"]
+            [0, "asc"]
         ],
         "aoColumns": [{
             "sWidth": "9%"
