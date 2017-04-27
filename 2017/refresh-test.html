@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <meta http-equiv="refresh" content="5; url=http://localhost:8000"> -->
-    <meta http-equiv="refresh" content="15; url=http://extras.denverpost.com/projects/2017/nfl-draft/index.html">
+    <meta http-equiv="refresh" content="180; url=http://extras.denverpost.com/projects/2017/nfl-draft/index.html">
     <title>NFL Draft Tracker 2017 | The Denver Post</title>
     <link rel="canonical" href="http://extras.denverpost.com/projects/2017/nfl-draft/index.html" />
     <link rel="shortcut icon" href="http://extras.mnginteractive.com/live/media/favIcon/dpo/favicon.ico" type="image/x-icon" />
@@ -96,9 +96,9 @@
     <div class="row">
         <a name="players"></a>
         <div class="large-12 medium-12 small-12 columns">
-            <div class="section-header" id="table-top-margin">DRAFTED PLAYERS</div>
-            <p style="color: #8e1024; font-style: italic;">List will automatically refresh every 3 minutes &bull; Use search box (ex: "Colorado" or "QB") or dropdown menus at bottom of columns (for round or team) to filter table &bull; Click page numbers below table to see other rounds</p>
-            <button class="round" onclick="refreshIframe();">Refresh list</button>
+            <!-- <div class="section-header" id="table-top-margin">DRAFTED PLAYERS</div>
+            <p style="color: #8e1024; font-style: italic;">List will automatically refresh every 3 minutes &bull; Use search box (ex: "Colorado" or "QB") or dropdown menus at bottom of columns (for round or team) to filter table &bull; Click page numbers below table to see other rounds</p> -->
+            <button class="round" onclick="self.location.reload()">Refresh list</button>
             <!-- Table headers - how you want them to look on page -->
             <table id="searchable-table" class="display responsive no-wrap" width="100%">
                 <thead>
@@ -191,13 +191,6 @@
     <!-- Custom JS -->
     <script src="http://extras.denverpost.com/frameworks/tables/datatables/js/base.js"></script>
     <script src="js/nfl-draft-table.js"></script>
-    <!-- Refresh button -->
-    <script>
-    function refreshIframe() {
-        var ifr = document.getElementsByName('draft-table')[0];
-        ifr.src = ifr.src;
-    }
-    </script>
     <script>
     // If #iframe in url, hide header section and footer
     if (iframe === 1) {

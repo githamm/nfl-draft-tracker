@@ -74,7 +74,7 @@ function loadDataTable() {
             [0, "asc"]
         ],
         "aoColumns": [{
-            "sWidth": "9%"
+            "sWidth": "10%"
                 // "sType": "formatted-num" 
         }, {
             "sWidth": "9%"
@@ -86,7 +86,7 @@ function loadDataTable() {
             "sWidth": "25%"
                 // "sType": "formatted-num" 
         }, {
-            "sWidth": "9%"
+            "sWidth": "8%"
                 // "sType": "formatted-num" 
         }, {
             "sWidth": "18%"
