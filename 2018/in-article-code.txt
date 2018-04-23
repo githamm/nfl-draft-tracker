@@ -1,0 +1,20 @@
+Live coverage of the 2017 NFL draft from The Denver Post, including live updates, picks around the NFL and selections from the Denver Broncos. The second round begins at 5 p.m. Friday.
+<div style="font-family: Helvetica, sans-serif;font-size: 16px;margin-bottom: 25px"><strong>JUMP TO:</strong> <a href="#live-blog">LIVE BLOG</a> • <a href="#videos">VIDEOS</a> • <a href="#photos">PHOTOS</a> • <a href="#stories">STORIES</a></div>
+<div style="background-color: #8e1024;height: 35px;font-family: Helvetica, sans-serif;font-size: 20px;font-weight: bold;padding-left: 15px;padding-top: 5px;margin-bottom: 20px;color: white">DRAFTED PLAYERS</div>
+<p style="font-family: Helvetica, sans-serif;color: #8e1024;font-style: italic">Use search box (ex: "Colorado" or "QB") or dropdown menus at bottom of columns (for round or team) to filter table • Click page numbers below table to see other rounds</p>
+[dfm_iframe src="http://extras.denverpost.com/projects/2017/nfl-draft/index.html" width="100%" height="1100px" /]
+<div id="live-blog" style="margin-bottom: 125px"></div>
+<div style="background-color: #8e1024;height: 35px;font-family: Helvetica, sans-serif;font-size: 20px;font-weight: bold;padding-left: 15px;padding-top: 5px;margin-bottom: 20px;color: white">LIVE BLOG</div>
+[dfm_iframe src="http://embed.scribblelive.com/Embed/v5.aspx?Id=2561697&amp;ThemeId=9264" width="100%" height="2000px" /]
+<div id="spacer"></div>
+<div id="videos" style="margin-bottom: 125px"></div>
+<div style="background-color: #8e1024;height: 35px;font-family: Helvetica, sans-serif;font-size: 20px;font-weight: bold;padding-left: 15px;padding-top: 5px;margin-bottom: 20px;color: white">VIDEOS</div>
+https://www.youtube.com/watch?v=67oo65Q6JKI
+
+https://www.youtube.com/watch?v=DlJQQUEyo1o
+<div id="photos" style="margin-bottom: 125px"></div>
+<div style="background-color: #8e1024;height: 35px;font-family: Helvetica, sans-serif;font-size: 20px;font-weight: bold;padding-left: 15px;padding-top: 5px;margin-bottom: 20px;color: white">PHOTOS</div>
+[gallery ids="2630887,2630888,2630889,2630890,2630891,2630892,2630893,2630894,2630895"]
+<div id="stories" style="margin-bottom: 125px"></div>
+<div style="background-color: #8e1024;height: 35px;font-family: Helvetica, sans-serif;font-size: 20px;font-weight: bold;padding-left: 15px;padding-top: 5px;margin-bottom: 20px;color: white">STORIES</div>
+[related_articles location="left" show_article_date="true" article_type="automatic-primary-tag"]
