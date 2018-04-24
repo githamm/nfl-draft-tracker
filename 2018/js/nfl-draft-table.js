@@ -68,7 +68,7 @@ function loadDataTable() {
         "oLanguage": {
             "sLengthMenu": "_MENU_ records per page"
         },
-        "iDisplayLength": 16, // number of records per page
+        "iDisplayLength": 32, // number of records per page
         "iDisplayStart": 0, // where to start on table load
         "aaSorting": [
             [0, "asc"]

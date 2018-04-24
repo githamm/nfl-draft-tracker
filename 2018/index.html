@@ -58,12 +58,22 @@
     <script src="//extras.denverpost.com/frameworks/tables/datatables/js/lib/handlebars-v1.3.0.js"></script>
     <script src="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.js"></script>
     <script src="//cdn.datatables.net/responsive/1.0.4/js/dataTables.responsive.js"></script>
+    <style>
+    body {
+        background-color: #fafafa;
+        border: 1px solid silver;
+        padding: .3rem;
+    }
+    .button {
+        width: 100%;
+    }
+    </style>
 </head>
 
 <body>
     <div class="row">
         <div class="large-12 medium-12 small-12 columns">
-            <button class="round" onclick="refreshIframe();">Refresh list</button>
+            <input type="button" class="button" value="Tap to refresh list" onClick="window.location.reload()">
             <!-- Table headers - how you want them to look on page -->
             <table id="searchable-table" class="display responsive no-wrap" width="100%">
                 <thead>
@@ -106,13 +116,6 @@
     <!-- Custom JS -->
     <script src="//extras.denverpost.com/frameworks/tables/datatables/js/base.js"></script>
     <script src="js/nfl-draft-table.js"></script>
-    <!-- Refresh button -->
-    <script>
-    function refreshIframe() {
-        var ifr = document.getElementsByName('draft-table')[0];
-        ifr.src = ifr.src;
-    }
-    </script>
 </body>
 
 </html>
