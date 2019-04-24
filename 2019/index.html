@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta http-equiv="refresh" content="5; url=http://localhost:8000/"> -->
+    <!-- <meta http-equiv="refresh" content="15; url=http://extras.denverpost.com/projects/2017/nfl-draft/index.html"> -->
+    <title>NFL Draft Tracker 2019 | The Denver Post</title>
+    <link rel="shortcut icon" href="http://extras.mnginteractive.com/live/media/favIcon/dpo/favicon.ico" type="image/x-icon" />
+    <meta name="robots" content="index, nofollow" />
+    <meta name="language" content="en, sv" />
+    <link rel="stylesheet" href="//extras.denverpost.com/frameworks/tables/datatables/css/base.css" type="text/css">
+    <!-- <link rel="stylesheet" href="//extras.denverpost.com/frameworks/tables/datatables/css/base-datatable.css" type="text/css"> -->
+    <link rel="stylesheet" href="//extras.denverpost.com/projects/2018/nfl-draft/base-datatable.css" type="text/css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.5.1/css/foundation.min.css" type="text/css">
+    <link rel="stylesheet" href="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.css" type="text/css">
+    <link rel="stylesheet" href="//cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css" type="text/css">
+    <link rel="stylesheet" href="//extras.denverpost.com/frameworks/tables/datatables/css/table-styles.css" type="text/css">
+    <!-- <link rel="stylesheet" href="styles.css" type="text/css"> -->
+    <!-- SCRIPTS -->
+    <script src="//extras.denverpost.com/frameworks/tables/datatables/js/lib/jquery-1.11.1.js"></script>
+    <script src="//extras.denverpost.com/projects/2018/nfl-draft/js/jquery.dataTables.min.js"></script>
+    <script src="//extras.denverpost.com/frameworks/tables/datatables/js/lib/tabletop.js"></script>
+    <script src="//extras.denverpost.com/projects/2018/nfl-draft/js/columnfilter.js"></script>
+    <script src="//extras.denverpost.com/frameworks/tables/datatables/js/lib/underscore.js"></script>
+    <script src="//extras.denverpost.com/frameworks/tables/datatables/js/lib/handlebars-v1.3.0.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.js"></script>
+    <script src="//cdn.datatables.net/responsive/1.0.4/js/dataTables.responsive.js"></script>
+    <style>
+    body {
+        background-color: #fafafa;
+        border: 1px solid silver;
+        padding: .3rem;
+    }
+    .button {
+        width: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="large-12 medium-12 small-12 columns">
+            <input type="button" class="button" value="Tap to refresh list" onClick="window.location.reload()">
+            <!-- Table headers - how you want them to look on page -->
+            <table id="searchable-table" class="display responsive no-wrap" width="100%">
+                <thead>
+                    <tr>
+                        <th>Rd</th>
+                        <th>Pk</th>
+                        <th>Player</th>
+                        <th>School</th>
+                        <th>Pos</th>
+                        <th>Team</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <th>All</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>All</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <!-- Templates -->
+    <script id="datatable-template" type="text/x-handlebars-template">
+        {{#each elements}} // The following correspond to spreadsheet headers
+        <tr>
+            <td data-title="Round:">{{ round }}</td>
+            <td data-title="Pick:">{{ pick }}</td>
+            <td data-title="Player:"><a href="{{ link }}" target="_blank">{{ player }}</a></td>
+            <td data-title="School:">{{ school }}</td>
+            <td data-title="Position:">{{ position }}</td>
+            <td data-title="Team:">{{ team }}</td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- Custom JS -->
+    <script src="//extras.denverpost.com/frameworks/tables/datatables/js/base.js"></script>
+    <script src="nfl-draft-table.js"></script>
+</body>
+
+</html>
