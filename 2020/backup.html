@@ -92,23 +92,13 @@
     .broncos-color {
         background-color: rgba(255, 165, 0, .2) !important;
     }
-
-table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.no-btn:first-child:before, 
-table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th.no-btn:first-child:before 
-{
-  content: none;
-}
-
-span.dtr-title {
-    display: none !important;
-}
     </style>
 </head>
 
 <body>
     <div class="row">
         <div class="large-12 columns">
-            <!-- <input type="button" class="button" style="width:100%" value="Tap to refresh list" onClick="window.location.reload()"> -->
+            <input type="button" class="button" style="width:100%" value="Tap to refresh list" onClick="window.location.reload()">
             <p class="table-instructions">Click column headers to sort &bull; use dropdown menus to filter</p>
         </div>
     </div>
@@ -139,9 +129,9 @@ span.dtr-title {
                         <th class="all">Pick</th>
                         <th class="all">Player</th>
                         <th class="all">Team</th>
-                        <th class="all">School</th>
-                        <th class="all">Position</th>
-                        <th class="all">Link</th>
+                        <th class="none">School</th>
+                        <th class="none">Position</th>
+                        <th class="never">Link</th>
                         <th class="none"></th>
                     </tr>
                 </thead>
@@ -207,16 +197,13 @@ span.dtr-title {
                         data: 'gsx$link.$t',
                         visible: false
                     },
-                    {
-                        data: 'gsx$comment.$t',
-                        addClass: 'none'
-                    }
+                    { data: 'gsx$comment.$t' }
                 ],
                 createdRow: function(row, data, index) {
-                    if (data.gsx$comment.$t == '') {
-                        var td = $(row).find('td:first');
-                        td.addClass('no-btn');
-                    };
+                    // if (data.gsx$comment.$t == '') {
+                    //     var td = $(row).find('td:first');
+                    //     td.addClass('no-btn');
+                    // };
                     if (data.gsx$team.$t == 'Broncos') {
                         $(row).addClass('broncos-color');
                     }
