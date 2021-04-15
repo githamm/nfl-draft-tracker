@@ -69,7 +69,7 @@ function loadDataTable() {
             "sLengthMenu": "_MENU_ records per page"
         },
         "iDisplayLength": 32, // number of records per page
-        "iDisplayStart": 0, // where to start on table load
+        //"iDisplayStart": 102, // where to start on table load
         "aaSorting": [
             [0, "asc"]
         ],
