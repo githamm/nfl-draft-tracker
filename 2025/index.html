@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>NFL Draft Tracker 2025 | The Denver Post</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/zf/jq-3.3.1/dt-1.10.20/fh-3.1.6/r-2.2.3/datatables.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/zf/jq-3.3.1/dt-1.10.20/fh-3.1.6/r-2.2.3/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.1/papaparse.js"></script>
+    <script src="./yadcf.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        margin-top: 1%;
+    }
+
+    .table-title {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 120%;
+        padding-top: 5px;
+    }
+
+    #filters {
+        font-size: .85rem;
+    }
+
+    .table-instructions {
+/*        color: #990012;*/
+        color: #000;
+        font-style: italic;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    #contributions-table-container {
+        margin-top: 10px;
+        padding: 3px;
+    }
+
+    #contributions-table {
+        font-size: .85rem;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    button.yadcf-filter-reset-button {
+        color: gray !important;
+        margin-left: 10px;
+        font-style: italic;
+        background: #fff !important;
+    }
+
+    select {
+        margin-top: 7px;
+        margin-bottom: 0;
+        font-size: .95rem;
+    }
+
+    .yadcf-filter-range {
+        height: 2.9em;
+        border: 1px solid silver;
+    }
+
+    .filter-text {
+        font-weight: bold;
+        margin-top: .5em;
+        margin-bottom: .5em;
+    }
+
+    table,
+    thead,
+    tbody {
+        /*border: 0px solid silver !important;*/
+        font-family: 'Roboto', Helvetica, sans-serif;
+        font-size: .95rem;
+        line-height: 1.2;
+    }
+
+    button.yadcf-filter-reset-button {
+        color: #990012;
+        font-weight: normal;
+    }
+
+    .broncos-color {
+        background-color: rgba(255, 165, 0, .2) !important;
+    }
+      td.details-control {
+        text-align: center;
+        color: forestgreen;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    tr.shown td.details-control {
+        text-align: center;
+        color: red;
+    }
+
+    .no-chevron {
+        font-size: 0;
+    }
+
+    span.dtr-title {
+        display: none !important;
+    }
+
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.no-button:first-child:before,
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th.no-button:first-child:before {
+        content: none;
+    }
+
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+        top: 17px;
+        font-family: 'Roboto', sans-serif;
+        background-color: #31a354;
+    }
+
+    table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before,
+    table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
+        font-family: 'Roboto', sans-serif;
+        content: '-';
+        background-color: #de2d26;
+    }
+
+    table tbody tr:nth-child(even) {
+        background-color: rgba(245, 245, 245, .7);
+    }
+
+    .dtr-data {
+        font-style: italic;
+    }
+
+    .source {
+        font-style: italic;
+        color: gray;
+        margin-top: 20px;
+        border-top: 1px solid gray;
+        padding-top: 5px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="large-12 columns">
+            <input type="button" class="button" style="width:100%;text-transform:uppercase;font-weight:bold" value="Tap to refresh list" onClick="window.location.reload()">
+            <p class="table-instructions">Click the <span class="fa fa-chevron-down" style="font-size:15px;color:forestgreen"></span> to see our Broncos' writers comments about a pick &bull; Use dropdown menus to filter &bull; Click column headers to sort</p>
+        </div>
+    </div>
+    <div id="filters">
+        <div class="row">
+            <div class="large-12 columns">
+                <div class="large-3 medium-3 small-6 columns">
+                    <p id="filter-1"></p>
+                </div>
+                <div class="large-3 medium-3 small-6 columns">
+                    <p id="filter-2"></p>
+                </div>
+                <div class="large-3 medium-3 small-6 columns">
+                    <p id="filter-3"></p>
+                </div>
+                <div class="large-3 medium-3 small-6 columns">
+                    <p id="filter-4"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <table id="nfl-draft-table" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="all">Rd.</th>
+                        <th class="all">Pick</th>
+                        <th class="all">Player</th>
+                        <th class="all">Position</th>
+                        <th class="all">Team</th>
+                        <th class="all">School</th>
+                        <th class="all">Link</th>
+                        <th class="none"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <p class="source">By Kevin Hamm, The Denver Post</p>
+        </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        // Spreadsheet url: https://docs.google.com/spreadsheets/d/1TF-RH-2Ywruc1U95g4Sv73PNKJ_mTJ07HeyBAl-yZ-E/edit?gid=0#gid=0
+        var sheetID = '1TF-RH-2Ywruc1U95g4Sv73PNKJ_mTJ07HeyBAl-yZ-E';
+        var tabID = '0';
+        Papa.parse('https://docs.google.com/spreadsheets/d/' + sheetID + '/export?format=csv&id=' + sheetID + '&gid=' + tabID, {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: function(results) {
+                var data = results.data;
+                var rowStart = Number(data[0].Row_start);
+                var numberOfRows = Number(data[0].Page_length);
+
+                var nflDraftTable = $('#nfl-draft-table').DataTable({
+                    scrollY: '600px',
+                    //scrollCollapse: true,
+                    data: data,
+                    scrollX: true,
+                    paging: true,
+                    pageLength: numberOfRows, // Set in column Y of sheet
+                    displayStart: rowStart, // Start table at row number; begins at 0 - set in column Z of sheet
+                    fixedHeader: true,
+                    responsive: false,
+                    dom: '<f<t>ilp>',
+                    order: [
+                        [1, 'asc'],
+                        [2, 'asc']
+                    ],
+                    // columnDefs: [{
+                    //     targets: -1,
+                    //     data: null,
+                    //     orderable: false,
+                    //     className: 'details-control',
+                    //     defaultContent: ''
+                    // }],
+                    columns: [{
+                            className: 'details-control',
+                            orderable: false,
+                            data: null,
+                            defaultContent: '',
+                            render: function() {
+                                return '<i class="fa fa-chevron-down" aria-hidden="true"></i>';
+                            },
+                            width: "15px"
+                        },
+                        { data: 'Round' },
+                        { data: 'Pick' },
+                        {
+                            data: 'Player',
+                            render: function(data, type, row) {
+                                if (row.Link == '') {
+                                    return data
+                                } else return '<a href="' + row.Link + '" target="_blank">' + data + '</a>';
+                            }
+                        },
+                        { data: 'Position' },
+                        { data: 'Team' },
+                        { data: 'School' },
+                        {
+                            data: 'Link',
+                            visible: false
+                        },
+                        {
+                            data: 'Comment',
+                            //addClass: 'none'
+                            visible: false
+                        }
+                    ],
+                    createdRow: function(row, data, index) {
+                        if (data.Comment == '') {
+                            $(row).find('td:eq(0)').removeClass('details-control');
+                            $(row).find('td:eq(0)').addClass('no-chevron');
+                        };
+                        if (data.Team == 'Denver Broncos') {
+                            $(row).addClass('broncos-color');
+                        }
+                    }
+                });
+
+                // Add event listener for opening and closing details
+                $('#nfl-draft-table tbody').on('click', 'td.details-control', function() {
+                    var tr = $(this).closest('tr');
+                    var tdi = tr.find("i.fa");
+                    var row = nflDraftTable.row(tr);
+
+                    if (row.child.isShown()) {
+                        // This row is already open - close it
+                        row.child.hide();
+                        tr.removeClass('shown');
+                        tdi.first().removeClass('fa-chevron-up');
+                        tdi.first().addClass('fa-chevron-down');
+                    } else {
+                        // Open this row
+                        row.child(format(row.data())).show();
+                        tr.addClass('shown');
+                        tdi.first().removeClass('fa-chevron-down');
+                        tdi.first().addClass('fa-chevron-up');
+                    }
+                });
+
+                nflDraftTable.on('user-select', function(e, dt, type, cell, originalEvent) {
+                    if ($(cell.node()).hasClass('details-control')) {
+                        e.preventDefault();
+                    }
+                });
+
+                yadcf.init(nflDraftTable, [{
+                        column_number: 1,
+                        filter_container_id: 'filter-4',
+                        filter_default_label: 'Filter by round'
+                    },
+                    {
+
+                        column_number: 5,
+                        filter_container_id: 'filter-1',
+                        filter_default_label: 'Filter by team',
+                        data: ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']
+                    },
+                    {
+
+                        column_number: 6,
+                        filter_container_id: 'filter-3',
+                        filter_default_label: 'Filter by school',
+                        filter_match_mode: 'exact'
+                    },
+                    {
+
+                        column_number: 4,
+                        filter_container_id: 'filter-2',
+                        filter_default_label: 'Filter by position',
+                        filter_match_mode: 'exact'
+                    }
+                ], {
+                    cumulative_filtering: false,
+                    filter_reset_button_text: 'Reset filter'
+                });
+
+                $('.yadcf-filter-reset-button').on('click', function() {
+                    level = parseInt(this.id.split('-')[1]);
+                    //disableDependentFilter(level, true);
+                });
+
+                $('.yadcf-filter').on('change', function() {
+                    level = parseInt(this.id.slice(-1));
+                    inuse = $(this).hasClass('inuse');
+                });
+            }
+        })
+    });
+
+    function format(d) {
+        // `d` is the original data object for the row
+        return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+            '<tr>' +
+            '<td>' + d.Comment + '</td>' +
+            '</tr>' +
+            '</table>';
+    };
+    </script>
+</body>
+
+</html>
